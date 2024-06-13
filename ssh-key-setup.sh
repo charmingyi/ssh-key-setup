@@ -30,7 +30,10 @@ sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_con
 sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 
+# 禁用密码登录
+sed -i 's/#PermitEmptyPasswords no/PermitEmptyPasswords no/' /etc/ssh/sshd_config
+
 # 重启 SSH 服务使配置生效
 systemctl restart ssh
 
-echo "SSH 密钥登录已启用。"
+echo "SSH 密钥登录已启用。密码登录已禁用。"
